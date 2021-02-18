@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <!--MY CSS-->
+    <link rel="stylesheet" href="{% static 'css/secretarias.css' %}">
+    <!--DATA TABLE JS-->
+    <script src="{% static 'data/js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static 'data/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'data/js/dataTables.rowReorder.min.js' %}"></script>
+    <script src="{% static 'data/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'data/js/my-dataTable.js' %}"></script>
+    <!--DATA TABLE CSS-->
+    <link rel="stylesheet" href="{% static 'data/css/jquery.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'data/css/rowReorder.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'data/css/responsive.dataTables.min.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <a href="{% url 'INGRESO:inicio' %}" class="icono-arrow"><i class="fas fa-arrow-alt-circle-left"></i></a>
+    <h1 class="titulo">Mis pacientes</h1>
+    <div class="table-container">
+        <table id="example" class="display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Historial</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td>{{paciente.nombre}}</td>
+                    <td>{{paciente.apellido}}</td>
+                    <td><a href="{% url 'INGRESO:historialDoc1' paciente.id %}"><i class="far fa-address-book"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <script src="{% static 'js/menu.js' %}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="menu-responsive-container">
+        <h1>Menu</h1><i class="fas fa-bars icono-menu"></i><i class="fas fa-times x-icono"></i>
+    </div>
+    <div class="body-container">
+        <nav class="menu-container">
+            <h1><i class="fas fa-user"></i>{{request.user.first_name}}</h1>
+            {% if perms.INGRESO.add_turnos %}
+            <ul>
+                <li id="border-top"><i class="far fa-calendar-plus"></i><a href="{% url 'INGRESO:asignar' %}">Reservar turno</a><li>
+                <li id="border-top"><i class="fas fa-clipboard-list"></i><a href="{% url 'INGRESO:lista_turnos' %}">Ver lista de turnos</a></li>
+            </ul>
+            {% endif %}
+
+            {% if perms.INGRESO.view_doctor1pacientes %}
+            <ul>
+                <li id="border-top"><i class="far fa-address-card"><a href="{% url 'INGRESO:listaPacientesDoc1' %}"></i>Mis pacientes</a></li>
+            </ul>
+            {% endif %}
+            {% if perms.INGRESO.view_doctor2pacientes %}
+            <ul>
+                <li id="border-top"><i class="far fa-address-card"></i><a href="{% url 'INGRESO:listaPacientesDoc2' %}">Mis pacientes</a></li>
+            </ul>
+            {% endif %}
+            <ul>
+                <li id="cerrar"><i class="fas fa-sign-out-alt"></i><a href="{% url 'INGRESO:salir' %}">Cerrar sesion</a></li>
+            </ul>
+        </nav>
+        <div class="right-side">
+            <div>
+                <p>Bienvenido/a: <strong id="nom-usuario">{{request.user.first_name}}</strong></p> 
+            </div>
+            <ul class="cuerpo-logo">
+                <h1>Clinica Riobam</h1>
+                <div>
+                    <i class="fas fa-user-md"></i>
+                    <i class="fas fa-hospital-alt"></i>
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+            </ul>
+        </div>
+    </div>
+{% endblock  %}

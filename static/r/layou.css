@@ -1,0 +1,11 @@
+body{
+    background:linear-gradient(20deg, white, rgb(67, 67, 117));
+    background-repeat: no-repeat;
+    background-repeat: none;
+    width: 100%;
+    height: 100vh;
+    overflow-x:hidden;
+}
+li{
+    list-style: none;
+}

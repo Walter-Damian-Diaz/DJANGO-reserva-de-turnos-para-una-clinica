@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+    <!--MY CSS-->
+    <link rel="stylesheet" href="{% static 'css/secretarias.css' %}">
+{% endblock %}
+
+
+{% block body %}
+        <a href="{% url 'INGRESO:historialDoc1' paciente.id %}" class="icono-arrow"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        <h1 class="titulo">Editar</h1>
+        <div class="form-container">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-success boton-guardar">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

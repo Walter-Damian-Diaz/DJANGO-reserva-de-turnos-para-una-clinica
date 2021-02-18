@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/secretarias.css' %}">
+{% endblock %}
+
+
+
+{% block body %}
+    {% if form.errors%}
+        <div class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle" style="padding-right:15px"></i>Error al ingresar datos</div>
+    {% endif %}
+    <a href="{% url 'INGRESO:lista_turnos' %}" class="icono-arrow"><i class="fas fa-arrow-alt-circle-left"></i></a>
+    <h1 class="titulo">Editar</h1>
+        <div class="form-container">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-success boton-guardar">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
