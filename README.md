@@ -8,10 +8,12 @@ https://django-reserva-de-turnos.herokuapp.com/
 USUARIOS:
   
   Secretaria-Romina
+  
   Secretaria-Antonela
+  
   Doctora-Sofia
+  
   Doctor-Raul
 
 CONTRASEÑA:
-  
   wally1234
