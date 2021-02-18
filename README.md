@@ -6,10 +6,12 @@ Sistema de reserva de turno django para una clinica, la pagina esta desplegada e
 https://django-reserva-de-turnos.herokuapp.com/
 
 USUARIOS:
+  
   Secretaria-Romina
   Secretaria-Antonela
   Doctora-Sofia
   Doctor-Raul
 
 CONTRASEÑA:
+  
   wally1234
